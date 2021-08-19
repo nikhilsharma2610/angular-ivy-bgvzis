@@ -1,3 +1,25 @@
 p {
   font-family: Lato;
 }
+input:focus {
+  outline: none;
+}
+input {
+  border: 0;
+}
+.content {
+  display: flex;
+  margin-right: 20%;
+}
+
+.addComp span {
+  margin-right: 20%;
+}
+
+.filterComp span {
+  margin-right: 50%;
+}
+
+.subContent{
+  width:50%;margin-right:10px;
+}

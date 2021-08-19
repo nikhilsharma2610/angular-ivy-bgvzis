@@ -1,4 +1,56 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h1>Candidates</h1>
+<div class="content">
+  <div style="width:50%" class="filterComp">
+    <span>
+  <input type="checkbox" [checked]= 'getMale' (click)="findGender('M')">Male
+  </span>
+    <input type="checkbox" [checked]= 'getFemale' (click)="findGender('F')">Female
+  </div>
+  <div style="float:right;margin-left:20%">
+    <input type="text" placeholder="Whom are you looking for ?" [(ngModel)]="findData" (ngModelChange)="findbyData($event)">
+    <hr>
+  </div>
+</div>
+<div>
+  <table style="width:100%">
+    <tr>
+      <td style="width:5%;font-weight:bold">#</td>
+      <td style="width:25%;font-weight:bold">First Name</td>
+      <td style="width:25%;font-weight:bold">Last Name</td>
+      <td style="width:30%;font-weight:bold">Email</td>
+      <td style="width:15%;font-weight:bold">Gender</td>
+    </tr>
+    <tr *ngFor="let d of filterData">
+      <td style="width:5%">{{d.id}}</td>
+      <td style="width:25%">{{d.first_name}}</td>
+      <td style="width:25%">{{d.last_name}}</td>
+      <td style="width:30%">{{d.email}}</td>
+      <td style="width:15%">{{d.gender}}</td>
+    </tr>
+  </table>
+</div>
+
+<h1>Add New Candidate</h1>
+<div class="content">
+  <div class="subContent">
+    <input type="text" placeholder="First Name" [(ngModel)]="firstName">
+    <hr>
+  </div>
+  <div style="width:50%">
+    <input type="text" placeholder="Last Name" [(ngModel)]="lastName">
+    <hr>
+  </div>
+</div>
+<div class="content">
+  <div style="width:100%;margin-right:10px;">
+    <input type="email"placeholder="Email" [(ngModel)]="email">
+    <hr>
+  </div>
+</div>
+<div class="addComp">
+  <span>
+              <input type="radio" name="gender" (click)="setGender('Male')">Male</span>
+  <span>
+              <input type="radio" name="gender" (click)="setGender('Female')">Female</span>
+  <button style="background:green; color:white" (click)="add()">Add</button>
+</div>
